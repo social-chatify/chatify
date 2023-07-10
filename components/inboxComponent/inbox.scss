@@ -1,0 +1,139 @@
+.inbox-container {
+  width: 30vw;
+  min-width: 20em;
+  display: grid;
+  grid-template-rows: 3rem 5rem auto;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  padding: 0 1rem 0 1rem;
+}
+
+.search {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: rgb(230, 230, 230);
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    border-radius: 0.5rem;
+    width: 90%;
+  }
+
+  input {
+    outline: none;
+    border: none;
+    width: 80%;
+    background-color: transparent;
+    color: black;
+  }
+}
+
+.story {
+  width: 100%;
+  overflow: auto;
+
+  .content-story {
+    width: fit-content;
+    // min-width: 200%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    padding-left: 1rem;
+  }
+
+  .profile-story {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    border: 2px solid rgb(2, 209, 255);
+  }
+}
+
+.story::-webkit-scrollbar {
+  display: none;
+}
+
+.inbox-chat {
+  width: 100%;
+  overflow: auto;
+  padding: 1rem 1rem 1rem 1rem;
+}
+
+.inbox-chat::-webkit-scrollbar {
+  display: none;
+}
+
+.inbox-cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  .inbox-content {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+
+    .pict-inbox {
+      width: 3.4rem;
+      height: auto;
+      border-radius: 100%;
+      background-color: gray;
+    }
+
+    .box-inbox {
+      width: 90%;
+      height: 3rem;
+      display: flex;
+      flex-direction: row;
+
+      .content1 {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        font-size: 0.8rem;
+        justify-content: space-evenly;
+      }
+
+      .content2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.8rem;
+        justify-content: space-evenly;
+
+        span {
+          width: 1rem;
+          height: 1rem;
+          background-color: rgb(49, 186, 255);
+          border-radius: 100%;
+          text-align: center;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 429px) {
+  .inbox-container {
+    width: 100vw;
+    height: 90vh;
+  }
+}
+
+@media only screen and (min-width: 430px) and (max-width: 883px) {
+  .inbox-container {
+    width: 90vw;
+    height: 100vh;
+  }
+}

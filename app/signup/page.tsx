@@ -1,29 +1,28 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import { useState } from "react";
-import "./login.css";
+import React, { useState } from "react";
+import "./signup.css";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { useCookies } from "react-cookie";
 import GoogleOauth from "@/components/googleOauth";
 import { GoogleOAuthProvider, useGoogleLogin } from "@react-oauth/google";
 
-export default function Login() {
+const Signup = () => {
   const router = useRouter();
-  const [cookies, setCookie] = useCookies();
+  const baseUrl = "http://localhost:8000";
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const baseUrl = "http://localhost:8000";
 
-  const handleLogin = async () => {
+  const handleSignup = async () => {
     try {
-      const response = await axios.post(`${baseUrl}/login`, {
+      const response = await axios.post(`${baseUrl}/register`, {
+        username: username,
         email: email,
         password: password,
       });
       console.log(response);
-      setCookie("user", JSON.stringify(response.data), { path: "/" });
-      router.push("/home");
+      router.push("/");
     } catch (error) {
       console.log(error);
     }
@@ -40,11 +39,17 @@ export default function Login() {
 
       <div className="container">
         <div className="content1">
-          <h2>Login to your account</h2>
-          <GoogleOAuthProvider clientId={`${process.env.NEXT_PUBLIC_CLIENT_ID}`}>
-            <GoogleOauth baseUrl={baseUrl} Router="/home"/> 
+          <h2>Sign up</h2>
+          <GoogleOAuthProvider
+            clientId={`${process.env.NEXT_PUBLIC_CLIENT_ID}`}
+          >
+            <GoogleOauth baseUrl={baseUrl} Router="/home" />
           </GoogleOAuthProvider>
           <span>OR</span>
+          <div className="input">
+            <label htmlFor="">Username</label>
+            <input type="text" onChange={(e) => setUsername(e.target.value)} />
+          </div>
           <div className="input">
             <label htmlFor="">Email</label>
             <input type="text" onChange={(e) => setEmail(e.target.value)} />
@@ -56,9 +61,10 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button onClick={handleLogin}>Log in</button>
+          <button onClick={handleSignup}>Sigh up</button>
           <div className="create-account">
-            Don’t have an account? <span onClick={() => router.push('/signup')}>Create</span>
+            Already have an account?{" "}
+            <span onClick={() => router.push("/")}>Sign in</span>
           </div>
         </div>
         <div className="content2">
@@ -67,4 +73,6 @@ export default function Login() {
       </div>
     </div>
   );
-}
+};
+
+export default Signup;
