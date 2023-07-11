@@ -1,24 +1,125 @@
 .chat-container {
-  background-color: gray;
   width: 60vw;
+  height: 100vh;
+  position: relative;
+  display: grid;
+  grid-template-rows: 10vh 90vh;
 }
 
 .header-chat {
   width: 100%;
-  height: 10%;
-  background-color: red;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 1rem 0 1rem;
+  border-bottom: 1px solid gray;
 }
-
-.content-chat {
-  width: 100%;
-  height: 80%;
-  background-color: yellow;
+.header-chat span {
+  width: 5%;
+}
+.header-chat span svg {
+  cursor: pointer;
+}
+.header-chat .section1 {
+  display: grid;
+  grid-template-columns: 4rem auto;
+  height: 100%;
+  width: 80%;
+  align-items: center;
+}
+.header-chat .section1 .pict-chat {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: gray;
+  border-radius: 100%;
+}
+.header-chat .section1 .online {
+  font-size: 0.7rem;
+}
+.header-chat .section2 {
+  display: flex;
+  flex-direction: row;
+  width: 15%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  gap: 1rem;
+}
+.header-chat .section2 svg {
+  cursor: pointer;
 }
 
 .footer-chat {
   width: 100%;
-  height: 10%;
+  height: 90vh;
+  padding: 5px 0 5px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+.footer-chat .content-chat {
+  width: 100%;
+  flex-grow: 1;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.footer-chat .content-chat div {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.footer-chat .content-chat div::-webkit-scrollbar {
+  display: block;
+}
+.footer-chat .form {
+  width: 90%;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: 0.4rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-right: 1rem;
+  background-color: rgb(210, 210, 210);
+  margin: 1rem 0 1rem 0;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+.footer-chat .form textarea {
+  resize: none;
+  border-radius: 0.4rem;
+  width: 80%;
+  border: none;
+  outline: none;
+  padding: 0.5rem 5px 0.5rem 5px;
+  background-color: transparent;
+  color: black;
+  font-size: 1rem;
+  max-height: 15vh;
+}
+.footer-chat .form #myTextarea::-webkit-scrollbar {
+  display: none;
+}
+.footer-chat .form span {
+  cursor: pointer;
+}
+.footer-chat .form button {
+  width: 2rem;
+  height: 2rem;
   background-color: blue;
+  border-radius: 100%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 0) {
