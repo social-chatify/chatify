@@ -9,7 +9,7 @@ import { GoogleOAuthProvider, useGoogleLogin } from "@react-oauth/google";
 
 const Signup = () => {
   const router = useRouter();
-  const baseUrl = "http://localhost:8000";
+  const baseUrl = "https://server-chatify.fly.dev";
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,7 +31,7 @@ const Signup = () => {
   return (
     <div className="header">
       {/* logo */}
-      <a href="http://localhost:8000" title="Chatify" className="logo-wraper">
+      <a href="http://localhost:3000" title="Chatify" className="logo-wraper">
         <img src="/assets/chatifylogo.png" alt="Chatify" className="logo" />
         <h1 className="logo-text">Chatify</h1>
       </a>

@@ -13,7 +13,7 @@ export default function Login() {
   const [cookies, setCookie] = useCookies();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const baseUrl = "http://localhost:8000";
+  const baseUrl = "https://server-chatify.fly.dev";
 
   const handleLogin = async () => {
     try {
@@ -21,7 +21,6 @@ export default function Login() {
         email: email,
         password: password,
       });
-      console.log(response);
       setCookie("user", JSON.stringify(response.data), { path: "/" });
       router.push("/home");
     } catch (error) {

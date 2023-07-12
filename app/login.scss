@@ -1,3 +1,4 @@
+// variable color
 $light: #fff;
 $dark: #000;
 $blue: #4f90f0;
@@ -9,6 +10,7 @@ $blue: #4f90f0;
   color: $dark;
 }
 
+// logo
 .logo-wraper {
   display: flex;
   position: absolute;
@@ -68,9 +70,6 @@ $blue: #4f90f0;
       border-radius: 0.5rem;
       border: 1px solid gray;
       height: 3rem;
-      // box-shadow: 3px 9px 17px -10px rgba(0, 0, 0, 0.53);
-      // -webkit-box-shadow: 3px 9px 17px -10px rgba(0, 0, 0, 0.53);
-      // -moz-box-shadow: 3px 9px 17px -10px rgba(0, 0, 0, 0.53);
       cursor: pointer;
 
       img {

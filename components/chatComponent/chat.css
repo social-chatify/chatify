@@ -12,7 +12,7 @@
   flex-direction: row;
   align-items: center;
   padding: 0 1rem 0 1rem;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #E5E7E9;
 }
 .header-chat span {
   width: 5%;
@@ -30,7 +30,7 @@
 .header-chat .section1 .pict-chat {
   width: 2.5rem;
   height: 2.5rem;
-  background-color: gray;
+  background-color: #E5E7E9;
   border-radius: 100%;
 }
 .header-chat .section1 .online {
@@ -58,7 +58,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: #ffffff;
 }
 .footer-chat .content-chat {
   width: 100%;
@@ -88,7 +88,7 @@
   justify-content: space-between;
   gap: 2rem;
   padding-right: 1rem;
-  background-color: rgb(210, 210, 210);
+  background-color: #E5E7E9;
   margin: 1rem 0 1rem 0;
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
@@ -100,7 +100,7 @@
   outline: none;
   padding: 0.5rem 5px 0.5rem 5px;
   background-color: transparent;
-  color: black;
+  color: #050e12;
   font-size: 1rem;
   max-height: 15vh;
 }
@@ -113,7 +113,8 @@
 .footer-chat .form button {
   width: 2rem;
   height: 2rem;
-  background-color: blue;
+  background-color: #0773dd;
+  color: #ffffff;
   border-radius: 100%;
   border: none;
   display: flex;

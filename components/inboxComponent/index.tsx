@@ -2,14 +2,23 @@
 "use client";
 import "./inbox.css";
 import { FaSearch } from "react-icons/fa";
-import React, { useRef, useEffect } from "react";
+import React, {FC, useRef, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
-const InboxComponent = () => {
+
+
+interface inboxProps{
+  route:React.MouseEventHandler
+}
+
+
+const InboxComponent:FC<inboxProps> = ({route}) => {
+  const router = useRouter();
   const scrollEventCountRef = useRef(0);
   const contentStoryRef = useRef<HTMLDivElement>(null);
   let contentStoryWidth: number;
 
-  // logic for scrolling story content start
+  // logic for scrolling story using scroll wheel , start
   useEffect(() => {
     const contentStoryElement = contentStoryRef.current;
     if (contentStoryElement) {
@@ -48,31 +57,33 @@ const InboxComponent = () => {
       contentStoryElement.removeEventListener("wheel", handleScroll);
     };
   }, []);
-  // logic for scrolling story content end
+  // logic for scrolling story using scroll wheel ,end
 
   return (
     <div className="inbox-container">
+      {/* search section */}
       <div className="search">
         <div>
           <FaSearch />
           <input type="text" placeholder="search" />
         </div>
       </div>
+
+      {/* strory section */}
       <div className="story">
         <div className="content-story" ref={contentStoryRef}>
-          <div className="profile-story">1</div>
-          <div className="profile-story">2</div>
-          <div className="profile-story">3</div>
-          <div className="profile-story">4</div>
-          <div className="profile-story">5</div>
-          {/* <div className="profile-story">6</div>
-          <div className="profile-story">7</div>
-         <div className="profile-story">8</div> */}
+          <div className="profile-story"></div>
+          <div className="profile-story"></div>
+          <div className="profile-story"></div>
+          <div className="profile-story"></div>
+          <div className="profile-story"></div>
         </div>
       </div>
+
+      {/* inbox section */}
       <div className="inbox-chat">
         <div className="inbox-cover">
-          <div className="inbox-content">
+          <div className="inbox-content" onClick={route}>
             <div className="pict-inbox"></div>
             <div className="box-inbox">
               <div className="content1">

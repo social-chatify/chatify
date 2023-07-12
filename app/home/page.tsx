@@ -6,10 +6,13 @@ import SideBar from "@/components/sidebar";
 import InboxComponent from "@/components/inboxComponent";
 import ChatComponent from "@/components/chatComponent";
 import Bottombar from "@/components/bottombar";
+import { useRouter } from "next/navigation";
 
 const Home = () => {
+  const router = useRouter()
   const [width, setWidth] = useState<number>(window.innerWidth);
 
+  // Rerender if screen changed
   useEffect(() => {
     const handleResize = () => {
       setWidth(window.innerWidth);
@@ -22,22 +25,30 @@ const Home = () => {
     };
   }, []);
 
+  const routerPage = () => {
+    router.push('/chat')
+  }
+
+  const routerComponent = () => {
+    console.log('ok')
+  }
+
   return (
     <div className="wrapper">
-      {width < 430 ? (
+      {width < 430 ? ( //mobile devices
         <>
-          <InboxComponent />
+          <InboxComponent route={routerPage} />
           <Bottombar />
         </>
-      ) : width < 885 ? (
+      ) : width < 885 ? ( // tablet devices
         <>
           <SideBar />
-          <InboxComponent />
+          <InboxComponent  route={routerComponent}/>
         </>
-      ) : (
+      ) : ( // desktop devices
         <>
           <SideBar />
-          <InboxComponent />
+          <InboxComponent  route={routerComponent}/>
           <ChatComponent />
         </>
       )}
